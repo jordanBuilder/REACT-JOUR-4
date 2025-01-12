@@ -10,31 +10,32 @@ function App() {
     setShowedText(!showedText);
   };
   const handleImageToggle = () => {
-    setShowedText(!showedText);
+    setShowedImage(!showedImage);
   };
 
   
 
-  return <>
-    <p>
+  return <div className="toggle-things">
+   { showedText && <p>
       Ce texte est affiché
-    </p>
+    </p>}
     <button onClick={handleTextToggle}>
       {showedText ? "Masquer le texte" :"Afficher le texte"}
     </button>
 
-    <img src="../public/image1.jpg" alt="" style={{
-      width: "100%",
+    {showedImage && <img src="../public/image1.jpg" alt="" style={{
+      width: "100px",
+      height:"100px",
       borderRadius: "8px",
       boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
-    }} />
+    }} />}
 
     <button onClick={handleImageToggle}>
       {showedText ? "Masquer l'image " : "Afficher l'image"}
     </button>
     
 
-  </>
+  </div>
 }
 
 export default App
